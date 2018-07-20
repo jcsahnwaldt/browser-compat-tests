@@ -36,6 +36,8 @@ function inixelate() {
 }
 
 function pixelate(y, s) {
+  // convert to UTF-8 bytes
+  s = unescape(encodeURIComponent(s));
   let c = 0;
   let i = y * 4 * width;
   while (c < s.length) {
@@ -58,7 +60,7 @@ var lines = [
 "Ut enim ad minim veniam, quis nostrud",
 "exercitation ullamco laboris nisi",
 "ut aliquip ex ea commodo consequat.",
-"Duis aute irure dolor in reprehenderit",
+"Düîs äüté îrüré dölör în répréhéndérît",
 "in voluptate velit esse cillum",
 "dolore eu fugiat nulla pariatur.",
 "Excepteur sint occaecat cupidatat non",
