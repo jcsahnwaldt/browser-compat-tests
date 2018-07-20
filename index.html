@@ -4,8 +4,8 @@
 "use strict";
 
 let params = (new URL(document.location)).searchParams;
-let width = parseInt(params.get('width'));
-let height = parseInt(params.get('height'));
+let width = parseInt(params.get('w'));
+let height = parseInt(params.get('h'));
 
 let canvas = document.createElement('canvas');
 canvas.width = width;
