@@ -26,24 +26,31 @@ let px = img.data;
 inixelate();
 
 function inixelate() {
-  let i = 0;
-  while (i < px.length) {
-    if ((i + 1) % 4 === 0) px[i++] = 0xFF; // alpha
-    else if ((i + 2) % (4 * width) === 0) px[i++] = 0x0A; // LF
-    else px[i++] = 0x20; // SP
+  for (let i = 0; i < px.length; i++) {
+    if ((i + 1) % 4 === 0) px[i] = 0xFF; // set alpha byte
+    else if ((i + 2) % (4 * width) === 0) px[i] = 0x0A; // LF at end of line
+    else px[i] = 0x20; // SP
   }
   ctx.putImageData(img, 0, 0);
 }
 
+function utf8len(b) {
+  return b >= 0b11110000 ? 4 : b >= 0b11100000 ? 3 : b >= 0b11000000 ? 2 : 1;
+}
+
 function pixelate(y, s) {
+  if (y >= height) return;
+
   // convert to UTF-8 bytes
   s = unescape(encodeURIComponent(s));
-  let c = 0;
-  let i = y * 4 * width;
-  while (c < s.length) {
-    if ((i + 2) % (4 * width) === 0) break;
-    px[i++] = s.charCodeAt(c++);
-    if ((i + 1) % 4 === 0) i++; // alpha
+
+  // max length: 3 bytes per pixel, minus 1 byte for LF
+  let m = Math.min(s.length, 3 * width - 1);
+  for (let c = 0, i = y * 4 * width; c < m; c++, i++) {
+    let b = s.charCodeAt(c);
+    if (c + utf8len(b) > m) break; // not enough space for all UTF-8 bytes - don't print any
+    if ((i + 1) % 4 === 0) i++; // skip alpha byte
+    px[i] = b;
   }
   ctx.putImageData(img, 0, 0);
 }
@@ -65,7 +72,8 @@ var lines = [
 "dolore eu fugiat nulla pariatur.",
 "Excepteur sint occaecat cupidatat non",
 "proident, sunt in culpa qui officia",
-"deserunt mollit anim id est laborum."
+"deserunt mollit anim id est laborum.",
+"🧐🧑🧒🧓🧔🧕🧖🧗🧘🧙🧚🧛🧜🧝🧞🧟"
 ];
 
 for (let i = 0; i < lines.length; i++) {
