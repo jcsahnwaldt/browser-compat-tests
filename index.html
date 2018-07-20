@@ -1,4 +1,8 @@
+<!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+</head>
 <body style="margin: 0px">
 <script>
 "use strict";
@@ -8,9 +12,12 @@ let width = parseInt(params.get('w'));
 let height = parseInt(params.get('h'));
 
 let canvas = document.createElement('canvas');
+canvas.style.position = 'absolute';
+canvas.style.left = '0px';
+canvas.style.top = '0px';
 canvas.width = width;
 canvas.height = height;
-document.body.appendChild(canvas);
+document.body.prepend(canvas);
 
 let ctx = canvas.getContext('2d');
 let img = ctx.createImageData(width, height);
