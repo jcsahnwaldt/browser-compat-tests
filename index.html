@@ -17,16 +17,17 @@ let canvas = document.getElementById('canvas');
 canvas.width = width;
 canvas.height = height;
 let ctx = canvas.getContext('2d');
-let img = ctx.createImageData(width, height);
+ctx.fillStyle = `rgb(${fill} ${fill} ${fill})`;
+ctx.fillRect(0, 0, width, height);
+let img = ctx.getImageData(0, 0, width, height);
+// let img = ctx.createImageData(width, height);
 let px = img.data;
 
-inixelate();
-
-function inixelate() {
-  px.fill(fill);
-  for (let ix = 3; ix < px.length; ix += 4) px[ix] = 0xFF; // set alpha byte
-  ctx.putImageData(img, 0, 0);
-}
+/*
+px.fill(fill);
+for (let ix = 3; ix < px.length; ix += 4) px[ix] = 0xFF; // set alpha byte
+ctx.putImageData(img, 0, 0);
+*/
 
 function utf8len(b) {
   return b >= 0b11110000 ? 4 : b >= 0b11100000 ? 3 : b >= 0b11000000 ? 2 : 1;
