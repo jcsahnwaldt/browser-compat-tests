@@ -11,6 +11,7 @@
 let params = (new URL(document.location)).searchParams;
 let width = parseInt(params.get('w'));
 let height = parseInt(params.get('h'));
+let fill = params.get('f').charCodeAt(0);
 
 let canvas = document.getElementById('canvas');
 canvas.width = width;
@@ -22,7 +23,7 @@ let px = img.data;
 inixelate();
 
 function inixelate() {
-  px.fill(0x20);
+  px.fill(fill);
   for (let ix = 3; ix < px.length; ix += 4) px[ix] = 0xFF; // set alpha byte
   ctx.putImageData(img, 0, 0);
 }
