@@ -9,35 +9,41 @@
 <script>
 "use strict";
 
-let params = (new URL(document.location)).searchParams;
-let width = parseInt(params.get('w'));
-let height = parseInt(params.get('h'));
-let fill = params.get('f').charCodeAt(0);
+const params = (new URL(document.location)).searchParams;
+const width = parseInt(params.get('width'));
+const height = parseInt(params.get('height'));
+const fill = params.get('fill').charCodeAt(0);
+const text = params.get('text');
 
-let canvas = document.getElementById('canvas');
+const canvas = document.getElementById('canvas');
 canvas.width = width;
 canvas.height = height;
 
-let txtCanvas = new TxtCanvas(canvas, fill);
+const txtCanvas = new TxtCanvas(canvas, fill);
 
-var lines = [
-"Lorem ipsum dolor sit amet,\n",
-"consectetur adipiscing elit,\n",
-"sed do eiusmod tempor incididunt\n",
-"ut labore et dolore magna aliqua.\n",
-"Ut enim ad minim veniam, quis nostrud\n",
-"exercitation ullamco laboris nisi\n",
-"ut aliquip ex ea commodo consequat.\n",
-"Duis aute irure dolor in reprehenderit\n",
-"in voluptate velit esse cillum\n",
-"dolore eu fugiat nulla pariatur.\n",
-"Excepteur sint occaecat cupidatat non\n",
-"proident, sunt in culpa qui officia\n",
-"deserunt mollit anim id est laborum.\n"
-];
+if (text) {
+  txtCanvas.write(text);
+}
+else {
+  const lines = [
+  "Lorem ipsum dolor sit amet,\n",
+  "consectetur adipiscing elit,\n",
+  "sed do eiusmod tempor incididunt\n",
+  "ut labore et dolore magna aliqua.\n",
+  "Ut enim ad minim veniam, quis nostrud\n",
+  "exercitation ullamco laboris nisi\n",
+  "ut aliquip ex ea commodo consequat.\n",
+  "Duis aute irure dolor in reprehenderit\n",
+  "in voluptate velit esse cillum\n",
+  "dolore eu fugiat nulla pariatur.\n",
+  "Excepteur sint occaecat cupidatat non\n",
+  "proident, sunt in culpa qui officia\n",
+  "deserunt mollit anim id est laborum.\n"
+  ];
 
-for (let line of lines) {
-  txtCanvas.write(line);
+  for (let line of lines) {
+    txtCanvas.write(line);
+  }
 }
 
 </script>
