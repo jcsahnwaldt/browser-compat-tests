@@ -2,13 +2,15 @@
 
 JavaScript class that encodes text (UTF-8 bytes) as pixels (RGB bytes) in a [canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). The canvas data can be downloaded by taking a screenshot and decoded back to text by [Netpbm](http://netpbm.sourceforge.net/) tools.
 
-### Usage
+## Usage
 
 Install Netpbm first. On macOS: `brew install netpbm`
 
 Load `index.html?w=13&h=13&f=%20` in your browser, make a screenshot of the canvas area, save the screenshot as a PNG file `screenshot.png`, and decode the text with `pngtopam screenshot.png`.
 
-### Chrome / Firefox automation
+## Browser automation
+
+### Chrome / Firefox
 
 Chrome and Firefox have almost the same command line interface for headless mode. These commands should work on macOS:
 
@@ -58,7 +60,7 @@ deserunt mollit anim id est laborum.
                                                              
 ```
 
-### Safari automation
+### Safari
 
 These commands may help with Safari:
 
@@ -74,7 +76,7 @@ screencapture -l$(osascript -e 'tell app "Safari" to id of window 1') screenshot
 
 Problems with this approach: It's too brittle, and there seems to be no way to capture just the canvas area. (Of course, we could use some other tools to crop the screenshot, but... ough.) The `-R` flag mentioned by `screencapture --help` doesn't seem to work with `l`.
 
-### Background
+## Background
 
 My original goal was to enable a script to start a browser, run some JavaScript in the browser, and get result messages from the browser, but without having to install tools like Selenium. I thought it should be easy to pass data from the browser back to the script, e.g. by saving a file somewhere, or by letting the script access the current DOM, but I didn't find a portable way to do anything like that.
 
