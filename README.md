@@ -40,7 +40,7 @@ In practice, it probably *won't* work, because the PNG screenshot won't be an ex
 
 ### Chrome / Firefox
 
-Chrome and Firefox have almost the same command line interface for headless mode. These commands should work on macOS:
+Chrome and Firefox have almost the same command line interface for headless mode. The [test.sh](test.sh) script executes commands like these (the paths to the Chrome and Firefox binaries only work on macOS):
 
 ```
 $ "/Applications/Firefox.app/Contents/MacOS/firefox" --headless --screenshot --window-size=15,10 "file://$(pwd)/test.html?width=15&height=10"
