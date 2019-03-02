@@ -1,15 +1,33 @@
 # txt2px
 
-Encode any kind of text as an image that can be decoded back to text by Netbpm tools.
+JavaScript class that encodes text (UTF-8 bytes) as pixels (RGB bytes) in a canvas. The canvas data can be downloaded by taking a screenshot and decoded back to text by [Netpbm](http://netpbm.sourceforge.net/) tools.
 
-Install [netbpm](http://netpbm.sourceforge.net/) first. On Mac: `brew install netbpm`
+### Usage
+
+Install Netpbm first. On macOS: `brew install netpbm`
+
+Load `index.html?w=13&h=13&f=%20` in your browser, make a screenshot of the canvas area, save the screenshot as a PNG file `screenshot.png`, and decode the text with `pngtopam screenshot.png`.
+
+### Chrome / Firefox automation
+
+Chrome and Firefox have almost the same command line interface for headless mode. These commands should work on macOS:
+
+```sh
+"/Applications/Firefox.app/Contents/MacOS/firefox" --headless --screenshot --window-size=13,13 "file://$(pwd)/index.html?w=13&h=13&f=%20"
+pngtopam screenshot.png
+```
+
+```sh
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot --window-size=13,13 "file://$(pwd)/index.html?w=13&h=13&f=%20"
+pngtopam screenshot.png
+```
 
 ### Safari automation
 
 These commands may help with Safari:
 
 ```
-osascript -e 'tell application "Safari" to open location "'"file://$(pwd)/index.html?w=13&h=13"'"'
+osascript -e 'tell application "Safari" to open location "'"file://$(pwd)/index.html?w=13&h=13&f=%20"'"'
 ```
 
 Note: `/Applications/Safari.app/Contents/MacOS/Safari` can't handle URLs with queries. :-(
