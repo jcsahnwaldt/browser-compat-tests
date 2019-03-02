@@ -32,7 +32,7 @@ txtCanvas.write('Hello World');
 
 Install Netpbm first. On macOS: `brew install netpbm`
 
-Load `test.html?width=10&height=10&fill=%20&text=Hello%20World` in your browser, make a screenshot of the canvas area, save the screenshot as a PNG file `screenshot.png`, and decode the text with `pngtopam screenshot.png`.
+Load [test.html?width=10&height=10&fill=%20&text=Hello%20World](test.html?width=10&height=10&fill=%20&text=Hello%20World) in your browser, make a screenshot of the canvas area, save the screenshot as a PNG file `screenshot.png`, and decode the text with `pngtopam screenshot.png`.
 
 ## Browser automation
 
