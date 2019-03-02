@@ -34,7 +34,7 @@ Install Netpbm first. On macOS: `brew install netpbm`
 
 In theory, the following *should* work: Load [test.html](test.html) in your browser, make a screenshot of the canvas area, save the screenshot as a PNG file `screenshot.png`, and decode the text with `pngtopam screenshot.png`.
 
-In practice, it probably *won't* work, because the PNG screenshot won't be an exact representation of the canvas pixels. But it *does* work in headless mode. See below.
+In practice, it probably *won't* work, because the PNG screenshot won't be an exact representation of the canvas pixels. But it *does* work in headless mode. See next section.
 
 ## Browser automation
 
