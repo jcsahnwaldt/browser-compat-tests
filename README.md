@@ -74,7 +74,7 @@ Note: `/Applications/Safari.app/Contents/MacOS/Safari` can't handle URLs with qu
 screencapture -l$(osascript -e 'tell app "Safari" to id of window 1') screenshot.png 
 ```
 
-Problems with this approach: It's too brittle, and there seems to be no way to capture just the canvas area. (Of course, we could use some other tools to crop the screenshot, but... ough.) The `-R` flag mentioned by `screencapture --help` doesn't seem to work with `l`.
+Problems with this approach: It's too brittle, and there seems to be no way to capture just the canvas area. (Of course, we could use some other tools to crop the screenshot, but... ough.) The `-R` flag mentioned by `screencapture --help` doesn't seem to work with `-l`.
 
 ## Background
 
