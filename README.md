@@ -12,10 +12,18 @@ These commands may help with Safari:
 osascript -e 'tell application "Safari" to open location "'"file://$(pwd)/index.html?w=13&h=13"'"'
 ```
 
-Note: `/Applications/Safari.app/Contents/MacOS/Safari` can't handle URls with queries. :-(
+Note: `/Applications/Safari.app/Contents/MacOS/Safari` can't handle URLs with queries. :-(
 
 ```
 screencapture -l$(osascript -e 'tell app "Safari" to id of window 1') screenshot.png 
 ```
 
-Problems with this approach: It's too brittle, and there seems to be no way to capture just the canvas area. (Of course, we could use some other tools to crop the screenshot, but... we won't.) The `-R` flag mentioned by `screencapture --help` doesn't seem to work with `l`.
+Problems with this approach: It's too brittle, and there seems to be no way to capture just the canvas area. (Of course, we could use some other tools to crop the screenshot, but... ough.) The `-R` flag mentioned by `screencapture --help` doesn't seem to work with `l`.
+
+### Background
+
+My original goal was to enable a script to start a browser, run some JavaScript in the browser, and get result messages from the browser, but without having to install tools like Selenium. I thought it should be easy to pass data from the browser back to the script, e.g. by saving a file somewhere, or by letting the script access the current DOM, but I didn't find a portable way to do anything like that.
+
+But there's a flag (portable between Chrome and Firefox) to make a screenshot in headless mode, so I wrote a bit of JavaScript code that encodes UTF-8 bytes as pixels. Decoding the pixels is pretty simple because [Netpbm's PAM format](http://netpbm.sourceforge.net/doc/pam.html) has basically the same format as [JavaScript's ImageData.data](https://developer.mozilla.org/en-US/docs/Web/API/ImageData/data) byte array.
+
+The only slight difficulty is the alpha channel - the screenshot is encoded as a [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) without an alpha channel. With any opacity less than 100%, the RGB values are altered, and the resulting text is garbled. The fix is pretty simple though: just set all alpha channel bytes to `0xFF` (100% opacity).
