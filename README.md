@@ -1,7 +1,7 @@
-GitHub project: https://github.com/jcsahnwaldt/txt2px <br>
-GitHub pages: https://jcsahnwaldt.github.io/txt2px/
-
 # txt2px
+
+- GitHub project: https://github.com/jcsahnwaldt/txt2px
+- GitHub pages: https://jcsahnwaldt.github.io/txt2px/
 
 Small JavaScript class that encodes text (UTF-8 bytes) as pixels (RGB bytes) in a [canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). The canvas data can be downloaded by taking a screenshot, and decoded back to text by [Netpbm](http://netpbm.sourceforge.net/) tools.
 
