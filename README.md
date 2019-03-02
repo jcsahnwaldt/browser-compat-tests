@@ -2,6 +2,8 @@
 
 Small JavaScript class that encodes text (UTF-8 bytes) as pixels (RGB bytes) in a [canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). The canvas data can be downloaded by taking a screenshot, and decoded back to text by [Netpbm](http://netpbm.sourceforge.net/) tools.
 
+Probably not really useful. Just a little hack.
+
 ## Usage
 
 ### Encoding text
