@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="pxtxt.js"></script>
+<script src="txt2px.js"></script>
 </head>
 <body style="margin: 0px">
 <canvas id="canvas" style="position: absolute; left: 0px; top: 0px"></canvas>
@@ -18,7 +18,7 @@ let canvas = document.getElementById('canvas');
 canvas.width = width;
 canvas.height = height;
 
-let pxtxt = new PxTxt(canvas, fill);
+let txtCanvas = new TxtCanvas(canvas, fill);
 
 var lines = [
 "Lorem ipsum dolor sit amet,\n",
@@ -37,7 +37,7 @@ var lines = [
 ];
 
 for (let line of lines) {
-  pxtxt.write(line);
+  txtCanvas.write(line);
 }
 
 </script>

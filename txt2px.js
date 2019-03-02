@@ -1,6 +1,7 @@
 "use strict";
 
-class PxTxt {
+class TxtCanvas {
+
   constructor(canvas, fill) {
     this.ctx = canvas.getContext('2d');
     this.img = this.ctx.createImageData(canvas.width, canvas.height);
@@ -26,4 +27,5 @@ class PxTxt {
     }
     this.ctx.putImageData(this.img, 0, 0);
   }
+
 }
