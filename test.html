@@ -5,14 +5,16 @@
 <script src="txt2px.js"></script>
 </head>
 <body style="margin: 0px">
+
 <canvas id="canvas" style="position: absolute; left: 0px; top: 0px"></canvas>
+
 <script>
 "use strict";
 
 const params = (new URL(document.location)).searchParams;
-const width = parseInt(params.get('width'));
-const height = parseInt(params.get('height'));
-const fill = params.get('fill').charCodeAt(0);
+const width = parseInt(params.get('width') || 15);
+const height = parseInt(params.get('height') || 10);
+const fill = (params.get('fill') || ' ').charCodeAt(0);
 const text = params.get('text');
 
 const canvas = document.getElementById('canvas');
