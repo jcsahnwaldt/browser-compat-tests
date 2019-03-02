@@ -11,7 +11,7 @@
 <script>
 "use strict";
 
-const params = (new URL(document.location)).searchParams;
+const params = new URL(document.location).searchParams;
 const width = parseInt(params.get('width') || 15);
 const height = parseInt(params.get('height') || 10);
 const fill = (params.get('fill') || ' ').charCodeAt(0);
