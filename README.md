@@ -12,14 +12,50 @@ Load `index.html?w=13&h=13&f=%20` in your browser, make a screenshot of the canv
 
 Chrome and Firefox have almost the same command line interface for headless mode. These commands should work on macOS:
 
-```sh
-"/Applications/Firefox.app/Contents/MacOS/firefox" --headless --screenshot --window-size=13,13 "file://$(pwd)/index.html?w=13&h=13&f=%20"
-pngtopam screenshot.png
+```
+$ "/Applications/Firefox.app/Contents/MacOS/firefox" --headless --screenshot --window-size=13,13 "file://$(pwd)/index.html?w=13&h=13&f=%20"
+*** You are running in headless mode.
+$ pngtopam screenshot.png
+P6
+13 13
+255
+Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud
+exercitation ullamco laboris nisi
+ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit
+in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia
+deserunt mollit anim id est laborum.
+                                                             
 ```
 
-```sh
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot --window-size=13,13 "file://$(pwd)/index.html?w=13&h=13&f=%20"
-pngtopam screenshot.png
+```
+$ "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot --window-size=13,13 "file://$(pwd)/index.html?w=13&h=13&f=%20"
+Written to file screenshot.png.
+$ pngtopam screenshot.png
+P6
+13 13
+255
+Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud
+exercitation ullamco laboris nisi
+ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit
+in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia
+deserunt mollit anim id est laborum.
+                                                             
 ```
 
 ### Safari automation
