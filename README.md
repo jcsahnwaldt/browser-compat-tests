@@ -1,9 +1,10 @@
-# browser-compat-tests
-Automated tests for feature compatibility in browsers and JavaScript engines.
+# txt2px
+
+Encode any kind of text as an image that can be decoded back to text by Netbpm tools.
 
 Install [netbpm](http://netpbm.sourceforge.net/) first. On Mac: `brew install netbpm`
 
-### Safari
+### Safari automation
 
 These commands may help with Safari:
 
