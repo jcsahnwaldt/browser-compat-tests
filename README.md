@@ -1,8 +1,34 @@
 # txt2px
 
-JavaScript class that encodes text (UTF-8 bytes) as pixels (RGB bytes) in a [canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). The canvas data can be downloaded by taking a screenshot and decoded back to text by [Netpbm](http://netpbm.sourceforge.net/) tools.
+Small JavaScript class that encodes text (UTF-8 bytes) as pixels (RGB bytes) in a [canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). The canvas data can be downloaded by taking a screenshot, and decoded back to text by [Netpbm](http://netpbm.sourceforge.net/) tools.
 
 ## Usage
+
+### Encoding text
+
+```html
+<script src="txt2px.js"></script>
+
+<!-- absolute position may simplify taking screenshots, especially in headless mode -->
+<canvas id="canvas" style="position: absolute; left: 0px; top: 0px"></canvas>
+
+<script>
+let canvas = document.getElementById('canvas');
+  
+// width and height doesn't really matter, as long as width * height * 3
+// is greater than the number of UTF-8 bytes of the text.
+canvas.width = 5;
+canvas.height = 10;
+  
+// create TxtCanvas, pre-fill with spaces (ASCII 32)
+let txtCanvas = new TxtCanvas(canvas, 32);
+
+// write text
+txtCanvas.write('Hello World');
+</script>
+```
+
+### Decoding text
 
 Install Netpbm first. On macOS: `brew install netpbm`
 
