@@ -15,8 +15,8 @@ Small JavaScript class that encodes text (UTF-8 bytes) as pixels (RGB bytes) in 
 <script>
 let canvas = document.getElementById('canvas');
   
-// width and height doesn't really matter, as long as width * height * 3
-// is greater than the number of UTF-8 bytes of the text.
+// If width * height * 3 is less than the number of UTF-8 bytes in the text, the text will be truncated.
+// Other than that, the specific values of width and height don't really matter.
 canvas.width = 5;
 canvas.height = 10;
   
