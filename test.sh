@@ -2,7 +2,13 @@
 
 set -e
 
-if [ -z "$1" ] ; then echo usage: "$0" '<chrome|firefox>'; exit 1; fi
+if [ -z "$1" ]
+then
+  echo "usage: $0 browser width height text char"
+  echo "    browser is required and must be 'chrome' or 'firefox'"
+  echo "    other arguments are optional"
+  exit 1
+fi
 
 chrome="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
@@ -12,7 +18,7 @@ height=${3:-10}
 text="$4"
 fill=${5:-%20}
 
-url="file://$(pwd)/lorem.html?width=$width&height=$height&text=$text&fill=$fill"
+url="file://$(pwd)/test.html?width=$width&height=$height&text=$text&fill=$fill"
 
 rm -f screenshot.png
 
