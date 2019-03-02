@@ -45,10 +45,7 @@ Chrome and Firefox have almost the same command line interface for headless mode
 ```
 $ "/Applications/Firefox.app/Contents/MacOS/firefox" --headless --screenshot --window-size=15,10 "file://$(pwd)/test.html?width=15&height=10"
 *** You are running in headless mode.
-$ pngtopam screenshot.png
-P6
-13 13
-255
+$ pngtopam screenshot.png | tail -n +4
 Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 ...                                                             
@@ -57,10 +54,7 @@ consectetur adipiscing elit,
 ```
 $ "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot --window-size=15,10 "file://$(pwd)/test.html?width=15&height=10"
 Written to file screenshot.png.
-$ pngtopam screenshot.png
-P6
-13 13
-255
+$ pngtopam screenshot.png | tail -n +4
 Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 ...
